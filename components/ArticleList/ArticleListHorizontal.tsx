@@ -2,14 +2,14 @@ import React, {FunctionComponent} from 'react';
 import {Box, Heading, Link, SimpleGrid, useColorModeValue as mode} from '@chakra-ui/react'
 import {BsArrowRight} from 'react-icons/bs'
 import {ExtendedStory} from "@prezly/sdk/dist/types/Story";
-import {Blog} from "@/components/ArticleList/StoryCard";
+import {StoryCard} from "@/components/ArticleList/StoryCard";
 
 
 interface Props {
     stories: Array<ExtendedStory>;
 }
 
-const ArticleList: FunctionComponent<Props> = ({ stories }) => {
+const ArticleListHorizontal: FunctionComponent<Props> = ({ stories }) => {
 
     return (
         <Box as="section" bg={mode('gray.50', 'gray.800')} py={{ base: '10', sm: '24' }}>
@@ -19,11 +19,12 @@ const ArticleList: FunctionComponent<Props> = ({ stories }) => {
                 </Heading>
                 <SimpleGrid columns={{ base: 1, md: 3 }} spacing="12" mb="10">
                     {stories.map((story) => (
-                        <Blog story={story} />
+                        <StoryCard story={story} />
                     ))}
                 </SimpleGrid>
                 <Link fontSize="xl" fontWeight="bold" color={mode('blue.600', 'blue.400')}>
-                    <span>View all articles</span>
+                    <a href="/all"><span>View all articles</span></a>
+
                     <Box as={BsArrowRight} display="inline-block" ms="2" />
                 </Link>
             </Box>
@@ -31,4 +32,4 @@ const ArticleList: FunctionComponent<Props> = ({ stories }) => {
     );
 };
 
-export default ArticleList;
+export default ArticleListHorizontal;
