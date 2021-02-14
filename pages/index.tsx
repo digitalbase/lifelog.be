@@ -30,14 +30,13 @@ export default class HomePage extends React.Component<HomePageProps> {
 export async function getStaticProps({ params, preview }) {
     //const { path } = params;
     const prezlyAPI = new Prezly(process.env.PREZLY_ACCESS_TOKEN);
-    const prezlyNewsroom = process.env.PREZLY_NEWSROOM;
-    const numberOfArticles = process.env.ARTICLES_ON_HOMEPAGE;
+    const numberOfArticles = process.env.ARTICLES_ON_HOMEPAGE ?? 6;
 
     const jsonQuery = {
         "$and": [
-            { "room.id": { '$in': [prezlyNewsroom]}},
+            { "visibility": { '$in': ['public']}},
             { "$and": [{ "lifecycle_status": { '$in': ['published']}}]},
-            { "$and": [{ "visibility": { '$in': ['public']}}]}
+            //{ "$and": [{ "visibility": { '$in': ['public']}}]}
         ],
     };
 
