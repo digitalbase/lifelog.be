@@ -1,0 +1,19 @@
+{
+  "name": "lifelog.be",
+  "version": "0.0.1",
+  "description": "Blog on top of next.js and Prezly",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitalbase/lifelog.be.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/digitalbase/lifelog.be/issues"
+  },
+  "homepage": "https://github.com/digitalbase/lifelog.be#readme"
+}
