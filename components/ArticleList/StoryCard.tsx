@@ -1,5 +1,4 @@
-import {Box, Flex, Heading, Img, Link, LinkBox, LinkOverlay, Text, useColorModeValue as mode} from "@chakra-ui/react";
-import {BsClockFill} from "react-icons/bs";
+import { Flex, Heading, Img, LinkBox, LinkOverlay, Text, useColorModeValue as mode} from "@chakra-ui/react";
 import React from "react";
 import {ExtendedStory} from "@prezly/sdk/dist/types";
 
@@ -8,7 +7,7 @@ interface BlogProps {
 }
 
 
-export const Blog = (props: BlogProps) => {
+export const StoryCard = (props: BlogProps) => {
     const {title, subtitle, author = 'Gijs Nelissen', preview_image, slug } = props.story;
     const category = 'blog';
     const href = `/${slug}`;

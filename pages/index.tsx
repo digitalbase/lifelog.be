@@ -2,9 +2,9 @@ import React from 'react';
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 import {Hero} from "@/components/Hero";
-import ArticleList from "@/components/ArticleList/ArticleList";
 import { Prezly } from '../src/providers/prezly';
 import {ExtendedStory} from "@prezly/sdk/dist/types/Story";
+import {ArticleListHorizontal} from "@/components/ArticleList";
 
 
 type HomePageProps = {
@@ -19,7 +19,7 @@ export default class HomePage extends React.Component<HomePageProps> {
             <>
                 <Header />
                 <Hero />
-                <ArticleList stories={stories} />
+                <ArticleListHorizontal stories={stories} />
                 <Footer />
             </>
         );
