@@ -16,8 +16,8 @@ const Header: FunctionComponent = () => {
                                 Lifelog.be
                             </Box>
                             <HStack display={{ base: 'none', lg: 'flex' }} spacing="8">
-                                {/*<NavLink.Desktop active>Home</NavLink.Desktop>*/}
-                                {/*<NavLink.Desktop>About</NavLink.Desktop>*/}
+                                <NavLink.Desktop active><a href={'/'}>Home</a></NavLink.Desktop>
+                                <NavLink.Desktop><a href={'/about'}>About</a></NavLink.Desktop>
                             </HStack>
                         </HStack>
                         <Flex align="center">

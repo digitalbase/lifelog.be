@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { Box, ButtonGroup, Flex, IconButton, Link, Stack, Text } from '@chakra-ui/react'
+import {NavLink} from "@/components/Header/NavLink";
 
 const Footer: FunctionComponent = () => {
 
@@ -19,8 +20,7 @@ const Footer: FunctionComponent = () => {
                     textAlign={{ base: 'center', md: 'start' }}
                 >
                     <Text>&copy; {new Date().getFullYear()} Gijs Nelissen</Text>
-                    {/*<Link>Privacy</Link>*/}
-                    {/*<Link>Terms and Conditions</Link>*/}
+                    <Text><a href={'/about'}>About</a></Text>
                 </Stack>
                 <ButtonGroup marginStart={{ md: 'auto' }} color="gray.600" variant="ghost">
                     <IconButton as="a" href="https://www.linkedin.com/in/gijsnelissen/" aria-label="LinkedIn" icon={<FaLinkedin />} />
