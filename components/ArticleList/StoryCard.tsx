@@ -9,9 +9,9 @@ interface BlogProps {
 
 
 export const Blog = (props: BlogProps) => {
-    const {title, subtitle, author = 'Gijs Nelissen', preview_image } = props.story;
+    const {title, subtitle, author = 'Gijs Nelissen', preview_image, slug } = props.story;
     const category = 'blog';
-    const href = '';
+    const href = `/${slug}`;
 
     let mediaUrl = null;
     if (preview_image) {

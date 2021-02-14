@@ -8,10 +8,6 @@ export class Prezly {
         this.sdk = new prezlySDK({ accessToken });
     }
 
-    public async getNewsroom(newsRoomId: number) {
-        return this.sdk.newsrooms.get(newsRoomId);
-    }
-
     public async getCategories(newsroomId: number): Promise<Category[]> {
         const data = await this.sdk.newsroomCategories.list(newsroomId);
 
@@ -20,6 +16,35 @@ export class Prezly {
 
     public async getStory(id: number) {
         return this.sdk.stories.get(id);
+    }
+
+    public async getStoryBySlug(slug: string) {
+
+    }
+
+    public async getHomepageStories(limit = 6) {
+        const jsonQuery = {
+            "$and": [
+                { "visibility": { '$in': ['public']}},
+                { "$and": [{ "lifecycle_status": { '$in': ['published']}}]},
+                //{ "$and": [{ "visibility": { '$in': ['public']}}]}
+            ],
+        };
+
+        const { stories } = await this.searchStories({
+            limit,
+            sortOrder: '-published_at',
+            jsonQuery: JSON.stringify(jsonQuery)
+        } );
+
+        const extendedStories = [];
+        for (const story of stories) {
+            const extendedStory = await this.getStory(story.id);
+
+            extendedStories.push(extendedStory);
+        }
+
+        return extendedStories;
     }
 
     public async getStories(options) {
