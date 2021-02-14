@@ -1,69 +1,8 @@
-import React, { FunctionComponent } from 'react';
-import { Box, Flex, Heading, Img, Link, LinkBox, LinkOverlay, SimpleGrid, Text, useColorModeValue as mode } from '@chakra-ui/react'
-import { BsArrowRight, BsClockFill } from 'react-icons/bs'
+import React, {FunctionComponent} from 'react';
+import {Box, Heading, Link, SimpleGrid, useColorModeValue as mode} from '@chakra-ui/react'
+import {BsArrowRight} from 'react-icons/bs'
 import {ExtendedStory} from "@prezly/sdk/dist/types/Story";
-
-interface BlogProps {
-    category: string
-    title: string
-    href: string
-    media: string
-    description: string
-    author: {
-        name: string
-        href: string
-    }
-}
-
-const Blog = (props: BlogProps) => {
-    const { title, href, description, author, category, media } = props;
-    let mediaUrl = null;
-    if (media) {
-        const mediaParsed = JSON.parse(media);
-        mediaUrl = `https://cdn.uc.assets.prezly.com/${mediaParsed.uuid}/file.png`;
-    };
-
-
-    return (
-        <LinkBox
-            as="article"
-            bg={{ sm: mode('white', 'gray.700') }}
-            shadow={{ sm: 'base' }}
-            rounded={{ sm: 'md' }}
-            overflow="hidden"
-            transition="all 0.2s"
-            _hover={{ shadow: { sm: 'lg' } }}
-        >
-            <Flex direction="column">
-                { mediaUrl &&
-                    <Img height="60" objectFit="cover" alt={title} src={mediaUrl} />
-                }
-                <Flex direction="column" px={{ sm: '6' }} py="5">
-                    <Text casing="uppercase" letterSpacing="wider" fontSize="xs" fontWeight="semibold" mb="2" color="gray.500">
-                        {category}
-                    </Text>
-                    <Heading as="h3" size="sm" mb="2" lineHeight="base">
-                        <LinkOverlay href={href}>{title}</LinkOverlay>
-                    </Heading>
-                    <Text noOfLines={2} mb="8" color={mode('gray.600', 'gray.400')}>
-                        {description}
-                    </Text>
-                    <Flex align="baseline" justify="space-between" fontSize="sm" color={mode('gray.600', 'gray.400')}>
-                        <Text>
-                            By{' '}
-                            <Box as="a" textDecor="underline" href={author.href}>
-                                {author.name}
-                            </Box>
-                        </Text>
-                        <Link href="#">
-                            <Box as={BsClockFill} display="inline-block" me="2" opacity={0.4} />3 min read
-                        </Link>
-                    </Flex>
-                </Flex>
-            </Flex>
-        </LinkBox>
-    )
-}
+import {Blog} from "@/components/ArticleList/StoryCard";
 
 
 interface Props {
@@ -80,14 +19,7 @@ const ArticleList: FunctionComponent<Props> = ({ stories }) => {
                 </Heading>
                 <SimpleGrid columns={{ base: 1, md: 3 }} spacing="12" mb="10">
                     {stories.map((story) => (
-                        <Blog
-                            category="Blog"
-                            media={story.preview_image}
-                            title={story.title}
-                            description={story.subtitle}
-                            href="#"
-                            author={{ name: 'Gijs Nelissen', href: '#' }}
-                        />
+                        <Blog story={story} />
                     ))}
                 </SimpleGrid>
                 <Link fontSize="xl" fontWeight="bold" color={mode('blue.600', 'blue.400')}>
