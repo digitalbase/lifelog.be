@@ -4,7 +4,7 @@ import {Footer} from "@/components/Footer";
 import {Hero} from "@/components/Hero";
 import ArticleList from "@/components/ArticleList/ArticleList";
 import { Prezly } from '../src/providers/prezly';
-import Story, {ExtendedStory} from "@prezly/sdk/dist/types/Story";
+import {ExtendedStory} from "@prezly/sdk/dist/types/Story";
 
 
 type HomePageProps = {
