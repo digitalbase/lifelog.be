@@ -1,8 +1,6 @@
 import React from 'react';
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
-import {Hero} from "@/components/Hero";
-import ArticleListHorizontal from "@/components/ArticleList/ArticleList";
 import { Prezly } from '../src/providers/prezly';
 import {ExtendedStory} from "@prezly/sdk/dist/types/Story";
 import ArticleListVertical from "@/components/ArticleList/ArticleListVertical";
