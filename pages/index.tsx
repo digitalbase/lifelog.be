@@ -4,11 +4,11 @@ import {Footer} from "@/components/Footer";
 import {Hero} from "@/components/Hero";
 import ArticleList from "@/components/ArticleList/ArticleList";
 import { Prezly } from '../src/providers/prezly';
-import Story from "@prezly/sdk/dist/types/Story";
+import Story, {ExtendedStory} from "@prezly/sdk/dist/types/Story";
 
 
 type HomePageProps = {
-    stories: Array<Story>;
+    stories: Array<ExtendedStory>;
 };
 
 export default class HomePage extends React.Component<HomePageProps> {

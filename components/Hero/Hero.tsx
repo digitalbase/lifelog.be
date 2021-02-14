@@ -8,6 +8,18 @@ const Hero: FunctionComponent = () => {
         <Box as="section" bg={mode('gray.50', 'gray.800')} pt="16" pb="24">
             <Box maxW={{ base: 'xl', md: '7xl' }} mx="auto" px={{ base: '6', md: '8' }}>
                 <Stack direction={{ base: 'column', lg: 'row' }} spacing={{ base: '3rem', lg: '2rem' }} mt="8" align={{ lg: 'center' }} justify="space-between">
+                    <Box pos="relative" w={{ base: 'full', lg: '560px' }} h={{ base: 'auto', lg: '560px' }}>
+                        <Img
+                            w="full"
+                            pos="relative"
+                            zIndex="1"
+                            h={{ lg: '100%' }}
+                            objectFit="cover"
+                            src="https://ucarecdn.com/de234bd9-ccb9-46a6-8af2-67a30d4a3f92/_DSC0320Edit.jpg"
+                            alt="Screening talent"
+                        />
+                        <Box pos="absolute" w="100%" h="100%" top="-4" left="-4" bg={mode('gray.200', 'gray.700')} />
+                    </Box>
                     <Box flex="1" maxW={{ lg: '520px' }}>
                         <Text size="xs" textTransform="uppercase" fontWeight="semibold" color={mode('blue.600', 'blue.300')} letterSpacing="wide">
                             Lifelog.be
@@ -22,20 +34,20 @@ const Hero: FunctionComponent = () => {
                             I love to build stuff like this blog, JS/TS glue code and stuff in the real world.
                         </Text>
                         <Stack direction={{ base: 'column', md: 'row' }} spacing="4" mt="8">
-                            <Button size="lg" minW="210px" colorScheme="blue" height="14" px="8" leftIcon={<Box as={FaTwitter} fontSize="2xl" />}>
-                                Talk to me
+                            <Button size="lg" minW="210px" colorScheme="blue" height="14" px="8" leftIcon={<Box as={FaTwitter} fontSize="2xl"  />}>
+                                Contact
                             </Button>
-                            <Button
-                                size="lg"
-                                bg="white"
-                                color="gray.900"
-                                _hover={{ bg: 'gray.50' }}
-                                height="14"
-                                px="8"
-                                shadow="base"
-                            >
-                                About me
-                            </Button>
+                            {/*<Button*/}
+                            {/*    size="lg"*/}
+                            {/*    bg="white"*/}
+                            {/*    color="gray.900"*/}
+                            {/*    _hover={{ bg: 'gray.50' }}*/}
+                            {/*    height="14"*/}
+                            {/*    px="8"*/}
+                            {/*    shadow="base"*/}
+                            {/*>*/}
+                            {/*    About me*/}
+                            {/*</Button>*/}
                         </Stack>
                         <Text mt="8" color={mode('gray.600', 'gray.400')}>
                             This blog was built using Next.js, Chakra and Prezly API.{' '}
@@ -44,18 +56,7 @@ const Hero: FunctionComponent = () => {
                             </Link>
                         </Text>
                     </Box>
-                    <Box pos="relative" w={{ base: 'full', lg: '560px' }} h={{ base: 'auto', lg: '560px' }}>
-                        <Img
-                            w="full"
-                            pos="relative"
-                            zIndex="1"
-                            h={{ lg: '100%' }}
-                            objectFit="cover"
-                            src="https://ucarecdn.com/de234bd9-ccb9-46a6-8af2-67a30d4a3f92/_DSC0320Edit.jpg"
-                            alt="Screening talent"
-                        />
-                        <Box pos="absolute" w="100%" h="100%" top="-4" left="-4" bg={mode('gray.200', 'gray.700')} />
-                    </Box>
+
                 </Stack>
             </Box>
         </Box>
