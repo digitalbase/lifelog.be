@@ -19,13 +19,13 @@ const Footer: FunctionComponent = () => {
                     textAlign={{ base: 'center', md: 'start' }}
                 >
                     <Text>&copy; {new Date().getFullYear()} Gijs Nelissen</Text>
-                    <Link>Privacy</Link>
-                    <Link>Terms and Conditions</Link>
+                    {/*<Link>Privacy</Link>*/}
+                    {/*<Link>Terms and Conditions</Link>*/}
                 </Stack>
                 <ButtonGroup marginStart={{ md: 'auto' }} color="gray.600" variant="ghost">
-                    <IconButton as="a" href="www.google.com" aria-label="LinkedIn" icon={<FaLinkedin />} />
-                    <IconButton as="a" href="www.google.com" aria-label="LinkedIn" icon={<FaGithub />} />
-                    <IconButton as="a" href="www.google.com" aria-label="LinkedIn" icon={<FaTwitter />} />
+                    <IconButton as="a" href="https://www.linkedin.com/in/gijsnelissen/" aria-label="LinkedIn" icon={<FaLinkedin />} />
+                    <IconButton as="a" href="https://github.com/digitalbase" aria-label="Github" icon={<FaGithub />} />
+                    <IconButton as="a" href="https://twitter.com/digitalbase" aria-label="Twitter" icon={<FaTwitter />} />
                 </ButtonGroup>
             </Flex>
         </Box>

@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Box, Flex, Heading, Img, Link, LinkBox, LinkOverlay, SimpleGrid, Text, useColorModeValue as mode } from '@chakra-ui/react'
 import { BsArrowRight, BsClockFill } from 'react-icons/bs'
+import {ExtendedStory} from "@prezly/sdk/dist/types/Story";
 
 interface BlogProps {
     category: string
@@ -15,7 +16,14 @@ interface BlogProps {
 }
 
 const Blog = (props: BlogProps) => {
-    const { title, href, description, media, author, category } = props
+    const { title, href, description, author, category, media } = props;
+    let mediaUrl = null;
+    if (media) {
+        const mediaParsed = JSON.parse(media);
+        mediaUrl = `https://cdn.uc.assets.prezly.com/${mediaParsed.uuid}/file.png`;
+    };
+
+
     return (
         <LinkBox
             as="article"
@@ -27,7 +35,9 @@ const Blog = (props: BlogProps) => {
             _hover={{ shadow: { sm: 'lg' } }}
         >
             <Flex direction="column">
-                <Img height="60" objectFit="cover" alt={title} src={media} />
+                { mediaUrl &&
+                    <Img height="60" objectFit="cover" alt={title} src={mediaUrl} />
+                }
                 <Flex direction="column" px={{ sm: '6' }} py="5">
                     <Text casing="uppercase" letterSpacing="wider" fontSize="xs" fontWeight="semibold" mb="2" color="gray.500">
                         {category}
@@ -55,7 +65,12 @@ const Blog = (props: BlogProps) => {
     )
 }
 
-const ArticleList: FunctionComponent = () => {
+
+interface Props {
+    stories: Array<ExtendedStory>;
+}
+
+const ArticleList: FunctionComponent<Props> = ({ stories }) => {
 
     return (
         <Box as="section" bg={mode('gray.50', 'gray.800')} py={{ base: '10', sm: '24' }}>
@@ -64,30 +79,16 @@ const ArticleList: FunctionComponent = () => {
                     Latest articles
                 </Heading>
                 <SimpleGrid columns={{ base: 1, md: 3 }} spacing="12" mb="10">
-                    <Blog
-                        category="Fashion"
-                        media="https://images.unsplash.com/photo-1505944270255-72b8c68c6a70?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFjaWFsfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                        title="7 Steps to Get Professional Facial Results At Home"
-                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
-                        href="#"
-                        author={{ name: 'Segun Adebayo', href: '#' }}
-                    />
-                    <Blog
-                        category="Valentine"
-                        media="https://images.unsplash.com/photo-1516401266446-6432a8a07d41?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzR8fHZhbGVudGluZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                        title="The Best Excuses To Spend A Cozy Valentine’s Day In"
-                        description="As much as I love an over-the-top, romantic Valentine’s date, part of me is looking"
-                        href="#"
-                        author={{ name: 'Segun Adebayo', href: '#' }}
-                    />
-                    <Blog
-                        category="My Style"
-                        media="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hvcHBpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                        title="Top 5 Best-Sellers, Most-Loved & Favorite Buys of 2020"
-                        description="HAAAAPPY 2021! It’s the first Monday of the year and I have never been so ready for"
-                        href="#"
-                        author={{ name: 'Segun Adebayo', href: '#' }}
-                    />
+                    {stories.map((story) => (
+                        <Blog
+                            category="Blog"
+                            media={story.preview_image}
+                            title={story.title}
+                            description={story.subtitle}
+                            href="#"
+                            author={{ name: 'Gijs Nelissen', href: '#' }}
+                        />
+                    ))}
                 </SimpleGrid>
                 <Link fontSize="xl" fontWeight="bold" color={mode('blue.600', 'blue.400')}>
                     <span>View all articles</span>
