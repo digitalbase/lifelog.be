@@ -18,16 +18,34 @@ export class Prezly {
         return this.sdk.stories.get(id);
     }
 
-    public async getStoryBySlug(slug: string) {
+    public async fetchStoryBySlug(slug: string) {
+        const jsonQuery = {
+            "$and": [
+                { "slug": { '$eq': slug}},
+                { "$and": [{ "lifecycle_status": { '$in': ['published']}}]},
+                { "$and": [{ "visibility": { '$in': ['public']}}]}
+            ],
+        };
 
+        console.log(jsonQuery);
+        console.log({ '$eq': slug});
+
+        const { stories } = await this.searchStories({
+            limit:1,
+            jsonQuery: JSON.stringify(jsonQuery)
+        } );
+
+        if (stories.length === 1) {
+            return this.getStory(stories[0].id);
+        }
     }
 
     public async getHomepageStories(limit = 6) {
         const jsonQuery = {
             "$and": [
-                { "visibility": { '$in': ['public']}},
+                //{ "slug": { '$in': ['public']}},
                 { "$and": [{ "lifecycle_status": { '$in': ['published']}}]},
-                //{ "$and": [{ "visibility": { '$in': ['public']}}]}
+                { "$and": [{ "visibility": { '$in': ['public']}}]}
             ],
         };
 
@@ -47,7 +65,7 @@ export class Prezly {
         return extendedStories;
     }
 
-    public async getStories(options) {
+    public async getStories(options = { limit: 1000 }) {
         return this.sdk.stories.list(options);
     }
 
