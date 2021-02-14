@@ -19,7 +19,7 @@ const ArticleListHorizontal: FunctionComponent<Props> = ({ stories }) => {
                 </Heading>
                 <SimpleGrid columns={{ base: 1, md: 3 }} spacing="12" mb="10">
                     {stories.map((story) => (
-                        <StoryCard story={story} />
+                        <StoryCard story={story} key={story.id}/>
                     ))}
                 </SimpleGrid>
                 <Link fontSize="xl" fontWeight="bold" color={mode('blue.600', 'blue.400')}>

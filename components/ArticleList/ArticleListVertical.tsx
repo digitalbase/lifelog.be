@@ -19,7 +19,7 @@ const ArticleListVertical: FunctionComponent<Props> = ({ stories }) => {
                 </Heading>
                 <SimpleGrid columns={{ base: 1, md: 1 }} spacing="12" mb="12">
                     {stories.map((story) => (
-                        <StoryRow story={story} />
+                        <StoryRow story={story} key={story.id}/>
                     ))}
                 </SimpleGrid>
             </Box>
