@@ -16,6 +16,7 @@ const Header: FunctionComponent = () => {
                             </Box>
                             <HStack display={{ base: 'none', lg: 'flex' }} spacing="8">
                                 <NavLink.Desktop active><a href={'/'}>Home</a></NavLink.Desktop>
+                                <NavLink.Desktop><a href={'/all'}>Blog</a></NavLink.Desktop>
                                 <NavLink.Desktop><a href={'/about'}>About</a></NavLink.Desktop>
                             </HStack>
                         </HStack>
