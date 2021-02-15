@@ -18,10 +18,10 @@ const Article: FunctionComponent<Props> = ({ story }) => {
     return (
         <Box as="section" bg={mode('gray.100', 'gray.700')} py="12">
             <Box
-                textAlign="center"
+                textAlign="left"
                 bg={mode('white', 'gray.800')}
                 shadow="lg"
-                maxW="5xl"
+                maxW="3xl"
                 mx="auto"
                 px={{ base: '8', md: '8' }}
                 py="6"
