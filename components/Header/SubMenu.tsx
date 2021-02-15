@@ -10,19 +10,48 @@ import {
     useDisclosure,
     GridItem,
     Grid,
-    useColorModeValue
+    useColorModeValue, Button
 } from '@chakra-ui/react';
 import * as React from 'react';
-import { FaChevronDown } from 'react-icons/fa';
+import {FaChevronDown, FaTwitter} from 'react-icons/fa';
 import { LinkInterface } from './_data';
 import { NavLink } from './NavLink';
 import { SubmenuItem as DesktopMenuItem } from '@/components/Header/SubmenuItem';
 import { NavMenu } from '@/components/Header/NavMenu';
 import {BsArrowRight} from "react-icons/bs";
-import {mode} from "@chakra-ui/theme-tools";
+import { FaGithub } from 'react-icons/fa';
 
 interface SubmenuProps {
     link: LinkInterface
+}
+
+const SMAIntro = () => {
+    return (
+        <>
+            <Badge>#SME</Badge>
+            <Heading size="md" mb={4} mt={2} mr={4}>Solving Marketing Attribution</Heading>
+            <Text fontSize="l" mb={2}>
+                I have yet to meet the first marketer telling me they have solved marketing attribution.
+            </Text>
+            <Text fontSize="l" mb={2}>
+                Sure, plenty of talks throwing around keywords such as <Text as="cite">multi touch attribution</Text> and numerous blog posts about how important marketing attribution is.
+            </Text>
+
+            <Button as="a" target="_blank" href="https://github.com/digitalbase/solving-marketing-attribution" size="sm" my="4" px="4" leftIcon={<Box as={FaGithub} fontSize="2xl"  />}>
+                Show me the code
+            </Button>
+
+            <Text fontSize="l" mb={2}>
+                In this project I came up with a way to analyse and store the different sources a visitor comes from and feed that back to segment.com.
+            </Text>
+
+            <Link fontSize="l" href="/all" fontWeight="bold" color={useColorModeValue('blue.600', 'blue.400')}>
+                <span>View all articles</span>
+
+                <Box as={BsArrowRight} display="inline-block" ms="2" />
+            </Link>
+        </>
+    );
 }
 
 const DesktopSubmenu = (props: SubmenuProps) => {
@@ -45,25 +74,7 @@ const DesktopSubmenu = (props: SubmenuProps) => {
                         gap={12}
                     >
                         <GridItem colSpan={2}>
-                            <Badge>#SME</Badge>
-                            <Heading size="md" mb={4} mt={2} mr={4}>Solving Marketing Attribution</Heading>
-                            <Text fontSize="l" mb={2}>
-                                I have yet to meet the first marketer telling me they have solved marketing attribution.
-                            </Text>
-                            <Text fontSize="l" mb={2}>
-                                Sure, plenty of talks throwing around keywords such as <Text as="cite">multi touch attribution</Text> and numerous blog posts about how important marketing attribution is.
-                            </Text>
-
-                            <Text fontSize="l" mb={2}>
-                                In this project I came up with a way to analyse and store the different sources a visitor comes from and feed that back to segment.com.
-                            </Text>
-
-                            <Link fontSize="l" href="/all" fontWeight="bold" color={useColorModeValue('blue.600', 'blue.400')}>
-                                <span>View all articles</span>
-
-                                <Box as={BsArrowRight} display="inline-block" ms="2" />
-                            </Link>
-
+                            <SMAIntro />
                         </GridItem>
                         <GridItem colSpan={4}>
                             <SimpleGrid spacing="10" columns={2}>
@@ -88,16 +99,10 @@ const MobileSubMenu = (props: SubmenuProps) => {
 
     return (
         <Box zIndex="1">
-            <NavLink.Mobile as="button" textAlign="start" type="button" cursor="pointer" onClick={onToggle} paddingEnd="4">
-                <Heading mb={4}>Modern online and offline payments for Africa</Heading>
-                <Text fontSize="xl">
-                    Paystack helps businesses in Africa get paid by anyone, anywhere in the
-                    world
-                </Text>
-
-            </NavLink.Mobile>
+            <NavLink.Mobile as="button" textAlign="start" type="button" cursor="pointer" onClick={onToggle} paddingEnd="4" />
             <Collapse in={isOpen}>
-                <Box pl="5">
+                <Box pl="7">
+                    <SMAIntro />
                     {link.children?.map((item, idx) => (
                         <NavLink.Mobile key={idx} href={item.href}>
                             {item.label}

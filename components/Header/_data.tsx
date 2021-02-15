@@ -67,5 +67,5 @@ export const links: LinkInterface[] = [
             },
         ],
     },
-    { label: 'About me', href: '/about' },
+    // { label: 'About me', href: '/about' },
 ]
