@@ -17,8 +17,8 @@ const Header: FunctionComponent = () => {
                 <Box maxW="7xl" mx="auto" py="4" px={{ base: '6', md: '8' }}>
                     <Flex as="nav" justify="space-between">
                         <HStack spacing="8">
-                            <Box as="a" href="#" rel="home">
-                                <a href={'/'}>Lifelog.be</a>
+                            <Box as="a" href="/" rel="home">
+                                Lifelog.be
                             </Box>
                             <HStack as="ul" id="nav__primary-menu" aria-label="Main Menu" listStyleType="none">
                                 {links.map((link, idx) => (
@@ -33,7 +33,6 @@ const Header: FunctionComponent = () => {
                             <HStack spacing="8" display={{ base: 'none', md: 'flex' }}>
                                 <IconButton
                                     onClick={toggleColorMode}
-                                    sRound
                                     size="sm"
                                     fontSize="xl"
                                     aria-label="Toggle dark mode"

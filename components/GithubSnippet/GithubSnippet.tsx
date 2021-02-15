@@ -20,7 +20,7 @@ const GithubSnippet: FunctionComponent<Props> = ({ src, showBorder = true, showL
     scriptUrl.searchParams.append('showFileMeta', showFileMeta ? 'on' : 'off');
 
     return (
-        <div dangerouslySetInnerHTML={{__html: `<script src="${scriptUrl.toString()}"></script>`}}/>
+        <div dangerouslySetInnerHTML={{__html: `<div><script src="${scriptUrl.toString()}"></script></div></>`}}></div>
     );
 }
 

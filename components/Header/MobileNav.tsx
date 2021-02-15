@@ -90,10 +90,10 @@ export const MobileNav = () => {
                                 </Box>
                             </Flex>
                             <SimpleGrid as="nav" gap="6" mt="8" columns={{ base: 1, sm: 2 }}>
-                                <NavLink.Mobile icon={HiCloudDownload}>Product</NavLink.Mobile>
-                                <NavLink.Mobile icon={HiCurrencyDollar}>Pricing</NavLink.Mobile>
-                                <NavLink.Mobile icon={HiBookOpen}>Resources</NavLink.Mobile>
-                                <NavLink.Mobile icon={HiQuestionMarkCircle}>Help</NavLink.Mobile>
+                                <NavLink.Mobile>Product</NavLink.Mobile>
+                                <NavLink.Mobile>Pricing</NavLink.Mobile>
+                                <NavLink.Mobile>Resources</NavLink.Mobile>
+                                <NavLink.Mobile>Help</NavLink.Mobile>
                             </SimpleGrid>
                             <VStack mt="8" spacing="4">
                                 <Button w="full" colorScheme="blue">

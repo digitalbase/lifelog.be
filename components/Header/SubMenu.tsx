@@ -58,8 +58,8 @@ const DesktopSubmenu = (props: SubmenuProps) => {
                                 In this project I came up with a way to analyse and store the different sources a visitor comes from and feed that back to segment.com.
                             </Text>
 
-                            <Link fontSize="l" fontWeight="bold" color={useColorModeValue('blue.600', 'blue.400')}>
-                                <a href="/all"><span>View all articles</span></a>
+                            <Link fontSize="l" href="/all" fontWeight="bold" color={useColorModeValue('blue.600', 'blue.400')}>
+                                <span>View all articles</span>
 
                                 <Box as={BsArrowRight} display="inline-block" ms="2" />
                             </Link>
