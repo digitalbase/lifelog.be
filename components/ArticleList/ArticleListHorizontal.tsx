@@ -12,7 +12,7 @@ interface Props {
 const ArticleListHorizontal: FunctionComponent<Props> = ({ stories }) => {
 
     return (
-        <Box as="section" bg={mode('gray.50', 'gray.800')} py={{ base: '10', sm: '24' }}>
+        <Box as="section" bg={mode('gray.50', 'gray.800')} py={{ base: '10', sm: '12' }}>
             <Box maxW={{ base: 'xl', md: '7xl' }} mx="auto" px={{ base: '6', md: '8' }}>
                 <Heading size="xl" mb="8" fontWeight="extrabold">
                     Latest articles

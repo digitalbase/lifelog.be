@@ -5,7 +5,7 @@ import { Box, Button, Heading, Img, Link, Stack, Text, useColorModeValue as mode
 const Hero: FunctionComponent = () => {
 
     return (
-        <Box as="section" bg={mode('gray.50', 'gray.800')} pt="16" pb="24">
+        <Box as="section" bg={mode('gray.50', 'gray.800')} pt="16" pb="16">
             <Box maxW={{ base: 'xl', md: '7xl' }} mx="auto" px={{ base: '6', md: '8' }}>
                 <Stack direction={{ base: 'column', lg: 'row' }} spacing={{ base: '3rem', lg: '2rem' }} mt="8" align={{ lg: 'center' }} justify="space-between">
                     <Box pos="relative" w={{ base: 'full', lg: '560px' }} h={{ base: 'auto', lg: '560px' }}>

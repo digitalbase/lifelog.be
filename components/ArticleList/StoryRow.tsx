@@ -25,7 +25,7 @@ export const StoryRow = (props: BlogProps) => {
                     <Img height="60" width="60" alt={title} src={mediaUrl} borderRadius="lg" />
                 }
             </Box>
-            <Box mt={{ base: 4, md: 0 }} ml={{ md: 6 }}>
+            <Box mt={{ base: 4, md: 0 }} as="a" href={`/${slug}`}>
                 <Text
                     fontWeight="bold"
                     textTransform="uppercase"
@@ -35,16 +35,7 @@ export const StoryRow = (props: BlogProps) => {
                 >
                     Blog
                 </Text>
-                <Link
-                    mt={1}
-                    display="block"
-                    fontSize="lg"
-                    lineHeight="normal"
-                    fontWeight="semibold"
-                    href="#"
-                >
-                    { title}
-                </Link>
+                <Heading s="h3" size="l">{ title}</Heading>
                 <Text mt={2} color="gray.500">
                     { subtitle }
                 </Text>
