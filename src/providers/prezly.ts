@@ -27,9 +27,6 @@ export class Prezly {
             ],
         };
 
-        console.log(jsonQuery);
-        console.log({ '$eq': slug});
-
         const { stories } = await this.searchStories({
             limit:1,
             jsonQuery: JSON.stringify(jsonQuery)
