@@ -36,17 +36,19 @@ const Hero: FunctionComponent = () => {
                             <Button as="a" href="https://www.twitter.com/digitalbase" target="_blank" size="lg" minW="210px" colorScheme="blue" height="14" px="8" leftIcon={<Box as={FaTwitter} fontSize="2xl"  />}>
                                 Contact
                             </Button>
-                            {/*<Button*/}
-                            {/*    size="lg"*/}
-                            {/*    bg="white"*/}
-                            {/*    color="gray.900"*/}
-                            {/*    _hover={{ bg: 'gray.50' }}*/}
-                            {/*    height="14"*/}
-                            {/*    px="8"*/}
-                            {/*    shadow="base"*/}
-                            {/*>*/}
-                            {/*    About me*/}
-                            {/*</Button>*/}
+                            <Button
+                                size="lg"
+                                as="a"
+                                href={"/about"}
+                                bg="white"
+                                color="gray.900"
+                                _hover={{ bg: 'gray.50' }}
+                                height="14"
+                                px="8"
+                                shadow="base"
+                            >
+                                About me
+                            </Button>
                         </Stack>
                         <Text mt="8" color={mode('gray.600', 'gray.400')}>
                             This blog was built using Next.js, Chakra and Prezly API.{' '}

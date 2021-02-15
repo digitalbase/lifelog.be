@@ -21,6 +21,7 @@ const Footer: FunctionComponent = () => {
                 >
                     <Text>&copy; {new Date().getFullYear()} Gijs Nelissen</Text>
                     <Text><a href={'/blog'}>Blog</a></Text>
+                    <Text><a href={'/about'}>About</a></Text>
                 </Stack>
                 <ButtonGroup marginStart={{ md: 'auto' }} color="gray.600" variant="ghost">
                     <IconButton as="a" href="https://www.linkedin.com/in/gijsnelissen/" aria-label="LinkedIn" icon={<FaLinkedin />} />
