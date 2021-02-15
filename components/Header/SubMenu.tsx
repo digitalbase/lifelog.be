@@ -98,11 +98,13 @@ const MobileSubMenu = (props: SubmenuProps) => {
     const { isOpen, onToggle } = useDisclosure()
 
     return (
-        <Box zIndex="1">
-            <NavLink.Mobile as="button" textAlign="start" type="button" cursor="pointer" onClick={onToggle} paddingEnd="4" />
+        <Box>
+            <NavLink.Mobile as="button" textAlign="start" type="button" cursor="pointer" onClick={onToggle} paddingEnd="4">
+                <Box flex="1">{link.label}</Box>
+                <Box as={FaChevronDown} transform={`rotate(${isOpen ? '180deg' : '0deg'})`} />
+            </NavLink.Mobile>
             <Collapse in={isOpen}>
-                <Box pl="7">
-                    <SMAIntro />
+                <Box pl="5">
                     {link.children?.map((item, idx) => (
                         <NavLink.Mobile key={idx} href={item.href}>
                             {item.label}
