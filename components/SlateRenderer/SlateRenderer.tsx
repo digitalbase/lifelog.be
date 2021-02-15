@@ -1,8 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import { Node, Options, Renderer } from '@prezly/slate-renderer';
 import '@prezly/slate-renderer/build/styles.css';
+import {Text, Heading, UnorderedList, ListItem} from '@chakra-ui/react'
+
 import {
     BULLETED_LIST_NODE_TYPE,
+    NUMBERED_LIST_NODE_TYPE,
+    LIST_ITEM_NODE_TYPE,
+    LIST_ITEM_TEXT_NODE_TYPE,
     DOCUMENT_NODE_TYPE,
     HEADING_1_NODE_TYPE,
     HEADING_2_NODE_TYPE,
@@ -16,14 +21,17 @@ interface Props {
 }
 
 const options: Options = {
-    // [BULLETED_LIST_NODE_TYPE]: ({ children }) => <ul>{children}</ul>,
+    [LIST_ITEM_TEXT_NODE_TYPE]: ({ children }) => <>{children}</>,
+    [LIST_ITEM_NODE_TYPE]: ({ children }) => <ListItem>{children}</ListItem>,
+    [BULLETED_LIST_NODE_TYPE]: ({ children }) => <UnorderedList>{children}</UnorderedList>,
+    [NUMBERED_LIST_NODE_TYPE]: ({ children }) => <UnorderedList>{children}</UnorderedList>,
     // [DOCUMENT_NODE_TYPE]: ({ children, node }) => (
     //     <section data-version={node.version}>{children}</section>
     // ),
-    // [HEADING_1_NODE_TYPE]: ({ children }) => <h1>{children}</h1>,
-    // [HEADING_2_NODE_TYPE]: ({ children }) => <h2>{children}</h2>,
+    [HEADING_1_NODE_TYPE]: ({ children }) => <Heading s="h2" size="2xl" my="4">{children}</Heading>,
+    [HEADING_2_NODE_TYPE]: ({ children }) => <Heading s="h3" size="lg" my="4">{children}</Heading>,
     // [LINK_NODE_TYPE]: ({ children, node }) => <a href={node.href}>{children}</a>,
-    // [PARAGRAPH_NODE_TYPE]: ({ children }) => <p>{children}</p>,
+    [PARAGRAPH_NODE_TYPE]: ({ children }) => <Text mb="4">{children}</Text>,
     // [QUOTE_NODE_TYPE]: ({ children }) => <blockquote>{children}</blockquote>,
 };
 

@@ -16,11 +16,10 @@ const Article: FunctionComponent<Props> = ({ story }) => {
     const storyContent = JSON.parse(story.content);
 
     return (
-        <Box as="section" bg={mode('gray.100', 'gray.700')} py="12">
+        <Box as="section" bg={mode('white.100', 'gray.700')} py="12">
             <Box
                 textAlign="left"
                 bg={mode('white', 'gray.800')}
-                shadow="lg"
                 maxW="3xl"
                 mx="auto"
                 px={{ base: '8', md: '8' }}
@@ -31,7 +30,7 @@ const Article: FunctionComponent<Props> = ({ story }) => {
                     <Heading mt="4" fontWeight="extrabold">
                         { story.title}
                     </Heading>
-                    <Text fontSize="lg" mt="4" fontWeight="medium">
+                    <Text fontSize="lg" my="4" fontWeight="medium">
                         { story.subtitle}
                     </Text>
 
