@@ -1,46 +1,50 @@
-import { Box, chakra, Flex, HTMLChakraProps, Icon, useColorModeValue as mode } from '@chakra-ui/react'
+import { chakra, HTMLChakraProps, useColorModeValue as mode } from '@chakra-ui/react'
 import * as React from 'react'
 
-interface DesktopNavLinkProps extends HTMLChakraProps<'a'> {
+interface NavLinkProps extends HTMLChakraProps<'a'> {
     active?: boolean
 }
 
-const DesktopNavLink = (props: DesktopNavLinkProps) => {
+const DesktopNavLink = React.forwardRef((props: NavLinkProps, ref: React.Ref<any>) => {
     const { active, ...rest } = props
     return (
         <chakra.a
-            href="#"
-            aria-current={active ? 'page' : undefined}
+            ref={ref}
+            display="inline-block"
+            px="4"
+            py="2"
             fontWeight="semibold"
-            color={mode('gray.600', 'gray.300')}
+            aria-current={active ? 'page' : undefined}
+            color={mode('gray.600', 'gray.400')}
+            transition="all 0.2s"
             {...rest}
+            _hover={{ color: 'gray.500' }}
+            _active={{ color: 'blue.600' }}
             _activeLink={{
-                color: mode('blue.600', 'blue.300'),
+                color: 'blue.600',
                 fontWeight: 'bold',
             }}
         />
     )
-}
+})
 
-interface MobileNavLinkProps {
-    icon: React.ElementType
-    children: React.ReactNode
-    href?: string
-}
-
-const MobileNavLink = (props: MobileNavLinkProps) => {
-    const { icon, children, href } = props
+export const MobileNavLink = (props: NavLinkProps) => {
+    const { active, ...rest } = props
     return (
-        <Flex as="a" href={href} m="-3" p="3" align="center" rounded="md" cursor="pointer" _hover={{ bg: mode('gray.50', 'gray.600') }}>
-            <Icon as={icon} color={mode('blue.600', 'blue.400')} fontSize="xl" />
-            <Box marginStart="3" fontWeight="medium">
-                {children}
-            </Box>
-        </Flex>
+        <chakra.a
+            aria-current={active ? 'page' : undefined}
+            w="full"
+            display="flex"
+            alignItems="center"
+            height="14"
+            fontWeight="semibold"
+            borderBottomWidth="1px"
+            {...rest}
+        />
     )
 }
 
 export const NavLink = {
-    Desktop: DesktopNavLink,
     Mobile: MobileNavLink,
+    Desktop: DesktopNavLink,
 }

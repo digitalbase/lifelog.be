@@ -2,7 +2,9 @@ import React, { FunctionComponent } from 'react';
 import {Box, IconButton, Flex, HStack, useColorMode, Stack, Switch, useColorModeValue as mode} from '@chakra-ui/react';
 import { BsMoon, BsSun } from 'react-icons/bs';
 import { MobileNav } from './MobileNav';
-import { NavLink } from './NavLink';
+import { Submenu } from '@/components/Header/SubMenu';
+import { NavLink } from '@/components/Header/NavLink';
+import { links } from './_data';
 
 const Header: FunctionComponent = () => {
     const { colorMode, toggleColorMode } = useColorMode();
@@ -18,10 +20,12 @@ const Header: FunctionComponent = () => {
                             <Box as="a" href="#" rel="home">
                                 <a href={'/'}>Lifelog.be</a>
                             </Box>
-                            <HStack display={{ base: 'none', lg: 'flex' }} spacing="8">
-                                <NavLink.Desktop active><a href={'/'}>Home</a></NavLink.Desktop>
-                                <NavLink.Desktop><a href={'/all'}>Blog</a></NavLink.Desktop>
-                                <NavLink.Desktop><a href={'/about'}>About</a></NavLink.Desktop>
+                            <HStack as="ul" id="nav__primary-menu" aria-label="Main Menu" listStyleType="none">
+                                {links.map((link, idx) => (
+                                    <Box as="li" key={idx} id={`nav__menuitem-${idx}`}>
+                                        {link.children ? <Submenu.Desktop link={link} /> : <NavLink.Desktop href={link.href}>{link.label}</NavLink.Desktop>}
+                                    </Box>
+                                ))}
                             </HStack>
                         </HStack>
 
