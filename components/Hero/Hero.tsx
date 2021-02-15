@@ -51,8 +51,8 @@ const Hero: FunctionComponent = () => {
                         </Stack>
                         <Text mt="8" color={mode('gray.600', 'gray.400')}>
                             This blog was built using Next.js, Chakra and Prezly API.{' '}
-                            <Link href="#" textDecoration="underline">
-                                Learn more
+                            <Link href="https://github.com/digitalbase/lifelog.be" textDecoration="underline">
+                                See the code
                             </Link>
                         </Text>
                     </Box>
