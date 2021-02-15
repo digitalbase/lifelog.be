@@ -50,6 +50,10 @@ export default function Page({ meta, children }: Props) {
                 <meta name="twitter:description" content={description} />
                 <meta name="twitter:card" content={twitterCardType} />
                 <meta name="twitter:image" content={shareImageUrl} />
+
+                {process.env.NODE_ENV === 'production' &&
+                <script async defer data-domain="lifelog.be" src={"https://plausible.io/js/plausible.js"}/>
+                }
             </Head>
             <Header />
                 {children}
