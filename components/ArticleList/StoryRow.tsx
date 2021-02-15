@@ -12,20 +12,9 @@ export const StoryRow = (props: BlogProps) => {
     const category = 'blog';
     const href = `/${slug}`;
 
-    let mediaUrl = null;
-    if (preview_image) {
-        const mediaParsed = JSON.parse(preview_image);
-        mediaUrl = `https://cdn.uc.assets.prezly.com/${mediaParsed.uuid}/file.png`;
-    }
-
     return (
         <Box display={{ md: "flex" }}>
-            <Box flexShrink={0}>
-                {mediaUrl &&
-                    <Img height="60" width="60" alt={title} src={mediaUrl} borderRadius="lg" />
-                }
-            </Box>
-            <Box mt={{ base: 4, md: 0 }} as="a" href={`/${slug}`}>
+            <Box mt={{ base: 4, md: 0 }} as="a" href={href}>
                 <Text
                     fontWeight="bold"
                     textTransform="uppercase"

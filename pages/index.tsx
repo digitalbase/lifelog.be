@@ -32,7 +32,7 @@ export default class HomePage extends React.Component<HomePageProps> {
 export async function getStaticProps({ params, preview }) {
     //const { path } = params;
     const prezlyAPI = new Prezly(process.env.PREZLY_ACCESS_TOKEN);
-    const stories = await prezlyAPI.getHomepageStories(Number(process.env.ARTICLES_ON_HOMEPAGE ?? 6));
+    const stories = await prezlyAPI.getHomepageStories(Number(process.env.ARTICLES_ON_HOMEPAGE) ?? 3);
 
     return {
         props: {
