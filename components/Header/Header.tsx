@@ -1,9 +1,13 @@
 import React, { FunctionComponent } from 'react';
-import { Box, Button, Flex, HStack, useColorModeValue as mode, VisuallyHidden } from '@chakra-ui/react';
-import { MobileNav } from './MobileNav'
-import { NavLink } from './NavLink'
+import {Box, IconButton, Flex, HStack, useColorMode, Stack, Switch, useColorModeValue as mode} from '@chakra-ui/react';
+import { BsMoon, BsSun } from 'react-icons/bs';
+import { MobileNav } from './MobileNav';
+import { NavLink } from './NavLink';
 
 const Header: FunctionComponent = () => {
+    const { colorMode, toggleColorMode } = useColorMode();
+
+    //const ToggleIcon = colorMode === 'light' ? <FaTwitter /> : <FaFacebook />;
 
     return (
         <Box>
@@ -20,11 +24,25 @@ const Header: FunctionComponent = () => {
                                 <NavLink.Desktop><a href={'/about'}>About</a></NavLink.Desktop>
                             </HStack>
                         </HStack>
+
                         <Flex align="center">
+                            <HStack spacing="8" display={{ base: 'none', md: 'flex' }}>
+                                <IconButton
+                                    onClick={toggleColorMode}
+                                    sRound
+                                    size="sm"
+                                    fontSize="xl"
+                                    aria-label="Toggle dark mode"
+                                    variant="ghost"
+                                    color="current"
+                                    icon={colorMode === 'light' ? <BsMoon /> : <BsSun />}
+                                />
+                            </HStack>
                             <Box ml="5">
                                 <MobileNav />
                             </Box>
                         </Flex>
+
                     </Flex>
                 </Box>
             </Box>
