@@ -33,7 +33,7 @@ const Hero: FunctionComponent = () => {
                             I love to build stuff like this blog, JS/TS glue code and stuff in the real world.
                         </Text>
                         <Stack direction={{ base: 'column', md: 'row' }} spacing="4" mt="8">
-                            <Button size="lg" minW="210px" colorScheme="blue" height="14" px="8" leftIcon={<Box as={FaTwitter} fontSize="2xl"  />}>
+                            <Button as="a" href="https://www.twitter.com/digitalbase" target="_blank" size="lg" minW="210px" colorScheme="blue" height="14" px="8" leftIcon={<Box as={FaTwitter} fontSize="2xl"  />}>
                                 Contact
                             </Button>
                             {/*<Button*/}
