@@ -1,26 +1,29 @@
 import React from 'react';
-import {Header} from "@/components/Header";
-import {Footer} from "@/components/Footer";
-import {Hero} from "@/components/Hero";
-import { Prezly } from '../src/providers/prezly';
+import { Prezly } from '@/src/providers/prezly';
 import {ExtendedStory} from "@prezly/sdk/dist/types/Story";
 import parseNextPathParams from "../src/util/parseNextPathParams";
 import {Article} from "@/components/Article";
-
+import Page from "@/components/Layout/Page";
 
 type ArticlePageProps = {
     story: ExtendedStory;
 };
 
-export default class HomePage extends React.Component<ArticlePageProps> {
+export default class ArticlePage extends React.Component<ArticlePageProps> {
     render() {
         const { story } = this.props;
+        const storyMeta = {
+            title: story.title,
+            description: story.social_text ?? story.subtitle,
+            shareImage: story.social_image ?? null,
+            canonicalUrl: `/${story.slug}`
+        };
 
         return (
             <>
-                <Header />
+                <Page meta={storyMeta}>
                     <Article story={story} />
-                <Footer />
+                </Page>
             </>
         );
     }

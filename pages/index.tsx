@@ -1,11 +1,9 @@
 import React from 'react';
-import {Header} from "@/components/Header";
-import {Footer} from "@/components/Footer";
 import {Hero} from "@/components/Hero";
-import { Prezly } from '../src/providers/prezly';
 import {ExtendedStory} from "@prezly/sdk/dist/types/Story";
 import {ArticleListHorizontal} from "@/components/ArticleList";
-
+import Page from "@/components/Layout/Page";
+import {Prezly} from "@/src/providers/prezly";
 
 type HomePageProps = {
     stories: Array<ExtendedStory>;
@@ -14,13 +12,17 @@ type HomePageProps = {
 export default class HomePage extends React.Component<HomePageProps> {
     render() {
         const {stories} = this.props;
+        const meta = {
+            title: 'Lifelog.be',
+            description: 'On this page I write about running a company and other things related to the web.'
+        }
 
         return (
             <>
-                <Header />
-                <Hero />
-                <ArticleListHorizontal stories={stories} />
-                <Footer />
+                <Page meta={meta}>
+                    <Hero />
+                    <ArticleListHorizontal stories={stories} />
+                </Page>
             </>
         );
     }

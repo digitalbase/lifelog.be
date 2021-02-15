@@ -1,9 +1,8 @@
 import React from 'react';
-import {Header} from "@/components/Header";
-import {Footer} from "@/components/Footer";
-import { Prezly } from '../src/providers/prezly';
+import { Prezly } from '@/src/providers/prezly';
 import {ExtendedStory} from "@prezly/sdk/dist/types/Story";
 import ArticleListVertical from "@/components/ArticleList/ArticleListVertical";
+import Page from "@/components/Layout/Page";
 
 
 type HomePageProps = {
@@ -13,12 +12,16 @@ type HomePageProps = {
 export default class HomePage extends React.Component<HomePageProps> {
     render() {
         const {stories} = this.props;
+        const meta = {
+            title: 'All articles',
+            description: 'All articles i\'ve written'
+        }
 
         return (
             <>
-                <Header />
+                <Page meta={meta}>
                     <ArticleListVertical stories={stories} />
-                <Footer />
+                </Page>
             </>
         );
     }
