@@ -34,16 +34,11 @@ const Article: FunctionComponent<Props> = ({ story }) => {
                         { story.subtitle}
                     </Text>
 
-
-                    <Box textAlign="left" >
-                        {storyContent && (
-                            <>
-                                <DynamicSlateRenderer nodes={storyContent.children} />
-                            </>
-                        )}
-
-                    </Box>
-
+                    {storyContent && (
+                        <>
+                            <DynamicSlateRenderer nodes={storyContent.children} />
+                        </>
+                    )}
                 </Box>
             </Box>
         </Box>
