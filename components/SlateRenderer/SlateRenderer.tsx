@@ -15,10 +15,12 @@ import {
     PARAGRAPH_NODE_TYPE,
     QUOTE_NODE_TYPE,
 } from '@prezly/slate-types';
+import GithubSnippet from "@/components/GithubSnippet/GithubSnippet";
 
 interface Props {
     nodes: Node | Node[];
 }
+
 
 const options: Options = {
     [LIST_ITEM_TEXT_NODE_TYPE]: ({ children }) => <>{children}</>,
@@ -31,7 +33,17 @@ const options: Options = {
     [HEADING_1_NODE_TYPE]: ({ children }) => <Heading s="h2" size="2xl" my="4">{children}</Heading>,
     [HEADING_2_NODE_TYPE]: ({ children }) => <Heading s="h3" size="lg" my="4">{children}</Heading>,
     // [LINK_NODE_TYPE]: ({ children, node }) => <a href={node.href}>{children}</a>,
-    [PARAGRAPH_NODE_TYPE]: ({ children }) => <Text mb="4">{children}</Text>,
+    [PARAGRAPH_NODE_TYPE]: ({ children }) => {
+        if (children.props.nodes.length && children.props.nodes[0].text) {
+            const text = children.props.nodes[0].text;
+
+            if (text.substring(0, 19) === 'https://github.com/') {
+                return <GithubSnippet src={text} />;
+            }
+        }
+
+        return (<Text mb="4">{children}</Text>);
+    },
     // [QUOTE_NODE_TYPE]: ({ children }) => <blockquote>{children}</blockquote>,
 };
 

@@ -3,6 +3,7 @@ import {FunctionComponent} from "react";
 import dynamic from 'next/dynamic';
 import { Box, Heading, Text, useColorModeValue as mode } from '@chakra-ui/react'
 import {ExtendedStory} from "@prezly/sdk/dist/types/Story";
+import GithubSnippet from "@/components/GithubSnippet/GithubSnippet";
 
 interface Props {
     story: ExtendedStory;
@@ -11,7 +12,6 @@ interface Props {
 const DynamicSlateRenderer = dynamic(() => import('@/components/SlateRenderer'));
 
 const Article: FunctionComponent<Props> = ({ story }) => {
-
 
     const storyContent = JSON.parse(story.content);
 
@@ -33,6 +33,7 @@ const Article: FunctionComponent<Props> = ({ story }) => {
                     <Text fontSize="lg" my="4" fontWeight="medium">
                         { story.subtitle}
                     </Text>
+
 
                     <Box textAlign="left" >
                         {storyContent && (
