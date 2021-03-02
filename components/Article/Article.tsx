@@ -30,14 +30,14 @@ const Article: FunctionComponent<Props> = ({ story }) => {
                     <Heading mt="4" fontWeight="extrabold">
                         { story.title}
                     </Heading>
-                    <Text fontSize="lg" my="4" fontWeight="medium">
+                    <Text fontSize="3xl" my="4" fontWeight="medium">
                         { story.subtitle}
                     </Text>
 
                     {storyContent && (
-                        <>
+                        <Text fontSize="lg">
                             <DynamicSlateRenderer nodes={storyContent.children} />
-                        </>
+                        </Text>
                     )}
                 </Box>
             </Box>
