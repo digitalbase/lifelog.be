@@ -25,7 +25,7 @@ export default function Page({ meta, children }: Props) {
 
     // passed shareImage property can be a string (url) or an uploadcare object
     if (typeof shareImage === 'object' && shareImage !== null && meta.shareImage) {
-        shareImageUrl = `https://cdn.uc.assets.prezly.com/${shareImage.uuid}/-/format/png/opengraphimage.png`;
+        shareImageUrl = `https://cdn.uc.assets.prezly.com/${shareImage.uuid}/-/scale_crop/3000x1500/-/quality/best/-/format/png/opengraphimage.png`;
     } else if (typeof shareImage === 'string') {
         shareImageUrl = shareImage;
     }
