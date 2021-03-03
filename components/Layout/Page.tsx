@@ -22,6 +22,7 @@ export default function Page({ meta, children }: Props) {
     const shareImage = meta.shareImage;
 
     let shareImageUrl = `${SITE_URL}/twitter-card.png`;
+
     // passed shareImage property can be a string (url) or an uploadcare object
     if (typeof shareImage === 'object' && shareImage !== null && meta.shareImage) {
         shareImageUrl = `https://cdn.uc.assets.prezly.com/${shareImage.uuid}/-/format/png/opengraphimage.png`;

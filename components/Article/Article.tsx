@@ -3,7 +3,6 @@ import {FunctionComponent} from "react";
 import dynamic from 'next/dynamic';
 import { Box, Heading, Text, useColorModeValue as mode } from '@chakra-ui/react'
 import {ExtendedStory} from "@prezly/sdk/dist/types/Story";
-import GithubSnippet from "@/components/GithubSnippet/GithubSnippet";
 
 interface Props {
     story: ExtendedStory;

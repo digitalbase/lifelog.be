@@ -10,12 +10,17 @@ type ArticlePageProps = {
 };
 
 export default class ArticlePage extends React.Component<ArticlePageProps> {
+
     render() {
         const { story } = this.props;
+
+        // fall back to preview image if there is no social image
+        const socialImage = story.social_image ?? story.preview_image;
+
         const storyMeta = {
             title: story.title,
             description: story.social_text ?? story.subtitle,
-            shareImage: story.social_image ?? null,
+            shareImage: socialImage ? JSON.parse(socialImage) : null,
             canonicalUrl: `/${story.slug}`
         };
 
