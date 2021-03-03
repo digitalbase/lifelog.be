@@ -15,11 +15,11 @@ const Hero: FunctionComponent = () => {
                             pos="relative"
                             h={{ lg: '100%' }}
                             objectFit="cover"
-                            src="https://ucarecdn.com/de234bd9-ccb9-46a6-8af2-67a30d4a3f92/_DSC0320Edit.jpg"
-                            alt="Screening talent"
+                            src="https://ucarecdn.com/de234bd9-ccb9-46a6-8af2-67a30d4a3f92/-/scale_crop/560x560/center/-/quality/best/-/format/auto/_DSC0320Edit.jpg"
+                            alt="Picture of me in Portugal, 2018"
                         />
                     </Box>
-                    <Box flex="1" maxW={{ lg: '520px' }}>
+                    <Box flex="1" maxW={{ lg: '540px' }}>
                         <Text size="xs" textTransform="uppercase" fontWeight="semibold" color={mode('blue.600', 'blue.300')} letterSpacing="wide">
                             Lifelog.be
                         </Text>
@@ -51,7 +51,7 @@ const Hero: FunctionComponent = () => {
                             </Button>
                         </Stack>
                         <Text mt="8" color={mode('gray.600', 'gray.400')}>
-                            This blog was built using Next.js, Chakra and Prezly API.{' '}
+                            This page was built using <Link href="https://nextjs.org/" textDecoration="underline">Next.js</Link>, <Link href="https://chakra-ui.com/" textDecoration="underline">ChakraUI</Link> and <Link href="https://www.prezly.com/developers" textDecoration="underline">Prezly SDK</Link>.{' '}
                             <Link href="https://github.com/digitalbase/lifelog.be" textDecoration="underline">
                                 See the code
                             </Link>
