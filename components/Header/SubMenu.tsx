@@ -25,6 +25,31 @@ interface SubmenuProps {
     link: LinkInterface
 }
 
+const TBNIntro = () => {
+    return (
+        <>
+            <Badge>#thebestnewsroom</Badge>
+            <Heading size="md" mb={4} mt={2} mr={4}>The Best Newsroom</Heading>
+            <Text fontSize="l" mb={2}>
+                For an upcoming Prezly project we're rethinking the newsroom part of Prezly.
+            </Text>
+            <Text fontSize="l" mb={2}>
+                To help me shape my opinion about what makes a good newsroom and understand their technical foundations I needed to know what's out there.
+            </Text>
+
+            <Text fontSize="l" mb={2}>
+                These blog posts contain a crowd sourced list of the best newsrooms together with objective scoring criteria and the code I used to score them.
+            </Text>
+
+            <Link fontSize="l" href="/all" fontWeight="bold" color={useColorModeValue('blue.600', 'blue.400')}>
+                <span>View all articles</span>
+
+                <Box as={BsArrowRight} display="inline-block" ms="2" />
+            </Link>
+        </>
+    );
+}
+
 const SMAIntro = () => {
     return (
         <>
@@ -74,7 +99,12 @@ const DesktopSubmenu = (props: SubmenuProps) => {
                         gap={12}
                     >
                         <GridItem colSpan={2}>
-                            <SMAIntro />
+                            {link.label === 'Solving Marketing Attribution' &&
+                                <SMAIntro/>
+                            }
+                            {link.label === 'The Best Newsroom' &&
+                                <TBNIntro/>
+                            }
                         </GridItem>
                         <GridItem colSpan={4}>
                             <SimpleGrid spacing="10" columns={2}>

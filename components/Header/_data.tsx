@@ -13,6 +13,26 @@ export interface LinkInterface {
 export const links: LinkInterface[] = [
     { label: 'Blog', href: '/all' },
     {
+        label: 'The Best Newsroom',
+        children: [
+            {
+                label: 'Searching for the best newsroom',
+                description: 'To prepare for this project I wanted to get some inspiration from the best newsrooms out there. Googling my favourite brands with search queries like \'Apple newsroom\' or \'Red Bull newsroom\' turned out to be really underwhelming.',
+                href: '/searching-for-the-perfect-newsroom',
+            },
+            {
+                label: 'Building the perfect newsroom',
+                description: 'While I\'m searching for inspiration to design, build and integrate the best possible newsroom in Prezly I wanted to share the plans on how we\'re want to do this.',
+                href: '/building-the-perfect-newsroom',
+            },
+            {
+                label: 'What makes a good newsroom?',
+                description: 'In this post, I will explore different ways to score those newsrooms on their technical foundations. Obviously, a good newsroom is about a lot more than performance and accessibility but let\'s start with the basics.',
+                href: '/what-makes-a-good-newsroom',
+            },
+        ],
+    },
+    {
         label: 'Solving Marketing Attribution',
         children: [
             {
