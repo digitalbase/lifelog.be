@@ -16,6 +16,11 @@ export const links: LinkInterface[] = [
         label: 'The Best Newsroom',
         children: [
             {
+                label: 'Ad-tech, hosting and Frameworks for top-20 newsrooms',
+                description: 'I\'m interested in the ad stack of the most important newsrooms: Are they all using Google Analytics? Who is using segment.com and on average how many ad trackers can we detect?',
+                href: '/ad-tech-of-top-20-newsrooms',
+            },
+            {
                 label: 'Searching for the best newsroom',
                 description: 'To prepare for this project I wanted to get some inspiration from the best newsrooms out there. Googling my favourite brands with search queries like \'Apple newsroom\' or \'Red Bull newsroom\' turned out to be really underwhelming.',
                 href: '/searching-for-the-perfect-newsroom',
