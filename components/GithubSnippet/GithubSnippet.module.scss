@@ -1,0 +1,76 @@
+.github,
+.githubDark {
+    margin: 1rem 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+
+    :global {
+        .hljs {
+            padding-right: 7px;
+            overflow-x: auto;
+        }
+
+        .linenumber {
+            width: 50px;
+            margin-right: 7px;
+            padding: 0 7px;
+
+            &:first-of-type {
+                padding-top: 5px;
+            }
+
+            &:last-of-type {
+                padding-bottom: 5px;
+            }
+        }
+    }
+
+    .spinner {
+        & {
+            display: block;
+            margin: 10px auto;
+        }
+    }
+
+    .meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 10px;
+        color: #586069;
+        background-color: #f7f7f7;
+        border-top: 1px solid #ddd;
+        font-size: 14px;
+    }
+
+    .action + .action {
+        margin-left: 10px;
+    }
+}
+
+.github {
+    :global {
+        @import "node_modules/highlight.js/scss/github";
+
+        .hljs {
+            background-color: white;
+        }
+
+        .linenumber {
+            color: rgba(27, 31, 35, 0.3);
+            background-color: #fcfcfc;
+        }
+    }
+}
+
+.githubDark {
+    :global {
+        @import "node_modules/highlight.js/scss/github-dark";
+
+        .linenumber {
+            color: #eee;
+            background-color: #333;
+        }
+    }
+}
