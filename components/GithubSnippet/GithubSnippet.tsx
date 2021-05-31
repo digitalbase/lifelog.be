@@ -84,7 +84,7 @@ const GithubSnippet: FunctionComponent<Props> = ({
     };
 
     const themeClassName =
-        colorMode !== "light" ? styles.github : styles.githubDark;
+        colorMode === "light" ? styles.github : styles.githubDark;
 
     if (!fileContents) {
         return null;
