@@ -91,7 +91,7 @@ const GithubSnippet: FunctionComponent<Props> = ({
     }
 
     return (
-        <div className={themeClassName}>
+        <div className={[styles.wrapper, themeClassName].join(' ')}>
             {isLoading && <Spinner className={styles.spinner} />}
 
             {error && <Text color="red.300">{error}</Text>}

@@ -1,29 +1,50 @@
+.wrapper {
+    //width: 100%;
+    margin-bottom:1rem;
+    margin-top:1rem;
+
+    @media (min-width: 840px) {
+        width: 120%;
+        margin-left: -10%;
+    }
+}
+
 .github,
 .githubDark {
-    margin: 1rem 0;
-    border: 1px solid #ddd;
     border-radius: 5px;
     overflow: hidden;
+    font-size:.85rem;
 
     :global {
+
+        code {
+            .linenumber {
+                width: 50px;
+                margin-right: 7px;
+                padding: 0 7px;
+                font-size:.85rem;
+                line-height: 1.3rem;
+            }
+
+            & > .linenumber {
+
+                &:first-of-type {
+                    padding-top: 10px;
+                }
+
+                &:last-of-type {
+                    padding-bottom: 10px;
+                }
+            }
+        }
+
+
         .hljs {
             padding-right: 7px;
             overflow-x: auto;
         }
 
-        .linenumber {
-            width: 50px;
-            margin-right: 7px;
-            padding: 0 7px;
 
-            &:first-of-type {
-                padding-top: 5px;
-            }
-
-            &:last-of-type {
-                padding-bottom: 5px;
-            }
-        }
     }
 
     .spinner {
@@ -50,6 +71,8 @@
 }
 
 .github {
+    border: 1px solid #ddd;
+
     :global {
         @import "node_modules/highlight.js/scss/github";
 
@@ -65,6 +88,8 @@
 }
 
 .githubDark {
+    border: 1px solid #676565;
+
     :global {
         @import "node_modules/highlight.js/scss/github-dark";
 
