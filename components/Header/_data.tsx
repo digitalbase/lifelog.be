@@ -11,7 +11,7 @@ export interface LinkInterface {
 }
 
 export const links: LinkInterface[] = [
-    { label: 'Blog', href: '/all' },
+    { label: 'About me', href: '/about' },
     {
         label: 'The Best Newsroom',
         children: [
@@ -91,6 +91,5 @@ export const links: LinkInterface[] = [
                 href: '/day-9--dealing-with-trackingad-blockers',
             },
         ],
-    },
-    { label: 'About me', href: '/about' },
+    }
 ]
