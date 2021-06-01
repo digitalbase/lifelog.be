@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Node, Options, Renderer } from '@prezly/slate-renderer';
 import '@prezly/slate-renderer/build/styles.css';
-import GithubSnippet from "@/components/GithubSnippet/GithubSnippet";
+import GithubSnippet from "@/components/GithubSnippet";
 import {Text, Heading, UnorderedList, ListItem} from '@chakra-ui/react'
 
 import {
