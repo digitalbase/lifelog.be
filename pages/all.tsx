@@ -1,8 +1,8 @@
 import React from 'react';
-import { Prezly } from '@/src/providers/prezly';
 import {ExtendedStory} from "@prezly/sdk/dist/types/Story";
 import ArticleListVertical from "@/components/ArticleList/ArticleListVertical";
 import Page from "@/components/Layout/Page";
+import {getPrezlyApi} from "@/utils/prezly";
 
 
 type HomePageProps = {
@@ -29,9 +29,8 @@ export default class HomePage extends React.Component<HomePageProps> {
 
 
 export async function getStaticProps({ params, preview }) {
-    //const { path } = params;
-    const prezlyAPI = new Prezly(process.env.PREZLY_ACCESS_TOKEN);
-    const stories = await prezlyAPI.getHomepageStories(200);
+    const api = getPrezlyApi();
+    const { stories } = await api.getStories({ pageSize: 200 });
 
     return {
         props: {

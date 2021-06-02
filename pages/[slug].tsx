@@ -1,9 +1,9 @@
 import React from 'react';
-import { Prezly } from '@/src/providers/prezly';
 import {ExtendedStory} from "@prezly/sdk/dist/types/Story";
 import parseNextPathParams from "../src/util/parseNextPathParams";
 import {Article} from "@/components/Article";
 import Page from "@/components/Layout/Page";
+import {getPrezlyApi} from "@/utils/prezly";
 
 type ArticlePageProps = {
     story: ExtendedStory;
@@ -37,8 +37,8 @@ export default class ArticlePage extends React.Component<ArticlePageProps> {
 
 export async function getStaticProps({ params, preview }) {
     const { slug } = params;
-    const prezlyAPI = new Prezly(process.env.PREZLY_ACCESS_TOKEN);
-    const story = await prezlyAPI.fetchStoryBySlug(slug);
+    const api = getPrezlyApi();
+    const story = await api.getStoryBySlug(slug);
 
     if (!story) {
         return {
@@ -54,8 +54,8 @@ export async function getStaticProps({ params, preview }) {
 }
 
 export async function getStaticPaths() {
-    const prezlyAPI = new Prezly(process.env.PREZLY_ACCESS_TOKEN);
-    const { stories } = await prezlyAPI.getStories();
+    const api = getPrezlyApi();
+    const { stories } = await api.getStories({pageSize: 3});
 
     const paths = stories.map((story) => {
         return {

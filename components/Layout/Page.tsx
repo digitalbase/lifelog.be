@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 
-import { SITE_NAME, SITE_URL, TWITTER_USER_NAME } from '@/src/constants';
+import { SITE_NAME, SITE_URL, TWITTER_USER_NAME } from '@/utils/prezly/constants';
 import { Meta } from '@/src/types/meta';
 
 //inspired by https://github.com/vercel/virtual-event-starter-kit/blob/main/components/page.tsx

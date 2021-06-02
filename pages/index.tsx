@@ -3,7 +3,7 @@ import {Hero} from "@/components/Hero";
 import {ExtendedStory} from "@prezly/sdk/dist/types/Story";
 import {ArticleListHorizontal} from "@/components/ArticleList";
 import Page from "@/components/Layout/Page";
-import {Prezly} from "@/src/providers/prezly";
+import {getPrezlyApi} from "utils/prezly";
 
 type HomePageProps = {
     stories: Array<ExtendedStory>;
@@ -30,9 +30,8 @@ export default class HomePage extends React.Component<HomePageProps> {
 
 
 export async function getStaticProps({ params, preview }) {
-    //const { path } = params;
-    const prezlyAPI = new Prezly(process.env.PREZLY_ACCESS_TOKEN);
-    const stories = await prezlyAPI.getHomepageStories(Number(process.env.ARTICLES_ON_HOMEPAGE) ?? 3);
+    const api = getPrezlyApi();
+    const stories = await api.getStoriesExtended({ pageSize: 3 });
 
     return {
         props: {
