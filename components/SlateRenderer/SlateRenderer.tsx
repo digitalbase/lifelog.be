@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Node, Options, Renderer } from '@prezly/slate-renderer';
 import '@prezly/slate-renderer/build/styles.css';
 import GithubSnippet from "@/components/GithubSnippet";
-import {Text, Heading, UnorderedList, ListItem} from '@chakra-ui/react'
+import {Text, Heading, UnorderedList, ListItem} from '@chakra-ui/react';
 
 import {
     BULLETED_LIST_NODE_TYPE,
@@ -16,6 +16,7 @@ import {
     PARAGRAPH_NODE_TYPE,
     QUOTE_NODE_TYPE,
 } from '@prezly/slate-types';
+import AnchoredHeading from "@/components/Heading";
 
 interface Props {
     nodes: Node | Node[];
@@ -30,8 +31,8 @@ const options: Options = {
     // [DOCUMENT_NODE_TYPE]: ({ children, node }) => (
     //     <section data-version={node.version}>{children}</section>
     // ),
-    [HEADING_1_NODE_TYPE]: ({ children }) => <Heading s="h2" size="xl" my="4">{children}</Heading>,
-    [HEADING_2_NODE_TYPE]: ({ children }) => <Heading s="h3" size="lg" my="4">{children}</Heading>,
+    [HEADING_1_NODE_TYPE]: ({ children, node }) => <AnchoredHeading level="h1" node={node}><Heading s="h2" size="xl" my="4">{children}</Heading></AnchoredHeading>,
+    [HEADING_2_NODE_TYPE]: ({ children, node }) => <AnchoredHeading level="h2" node={node}><Heading s="h3" size="lg" my="4">{children}</Heading></AnchoredHeading>,
     // [LINK_NODE_TYPE]: ({ children, node }) => <a href={node.href}>{children}</a>,
     [PARAGRAPH_NODE_TYPE]: ({ children, node }) => {
         if (node && node.children[0].text) {

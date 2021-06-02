@@ -1,0 +1,26 @@
+.heading {
+    margin-left: -35px;
+    padding-left: 35px;
+
+    .anchor {
+        display:none;
+    }
+}
+
+.heading:hover {
+    .anchor {
+        display:block;
+    }
+}
+
+.anchor {
+    float: left;
+    padding-right: 5px;
+    margin-left: -35px;
+    margin-top: 5px;
+    text-decoration: none;
+}
+
+.icon {
+    width: 25px;
+}
