@@ -17,6 +17,7 @@ const getEnvVariables = (req?: IncomingMessage): Env => {
         }
     }
 
+    // @ts-ignore
     return { ...process.env };
 };
 
