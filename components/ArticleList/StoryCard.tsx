@@ -8,7 +8,7 @@ interface BlogProps {
 
 
 export const StoryCard = (props: BlogProps) => {
-    const {title, subtitle, author = 'Gijs Nelissen', preview_image, slug } = props.story;
+    const {title, subtitle, preview_image, slug } = props.story;
     const category = 'blog';
     const href = `/${slug}`;
 

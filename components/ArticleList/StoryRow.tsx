@@ -1,4 +1,4 @@
-import {Box, Flex, Heading, Img, Link, LinkBox, LinkOverlay, Text, useColorModeValue as mode} from "@chakra-ui/react";
+import {Box, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import {ExtendedStory} from "@prezly/sdk/dist/types";
 
@@ -8,8 +8,7 @@ interface BlogProps {
 
 
 export const StoryRow = (props: BlogProps) => {
-    const {title, subtitle, author = 'Gijs Nelissen', preview_image, slug } = props.story;
-    const category = 'blog';
+    const {title, subtitle, slug } = props.story;
     const href = `/${slug}`;
 
     return (

@@ -1,6 +1,5 @@
 import React, {FunctionComponent} from 'react';
-import {Box, Heading, Link, SimpleGrid, Text, useColorModeValue as mode} from '@chakra-ui/react'
-import {BsArrowRight} from 'react-icons/bs'
+import {Box, Heading, SimpleGrid, useColorModeValue as mode} from '@chakra-ui/react'
 import {ExtendedStory} from "@prezly/sdk/dist/types/Story";
 import {StoryRow} from "@/components/ArticleList/StoryRow";
 
