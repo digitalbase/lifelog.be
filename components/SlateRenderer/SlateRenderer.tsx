@@ -17,6 +17,7 @@ import {
     QUOTE_NODE_TYPE,
 } from '@prezly/slate-types';
 import AnchoredHeading from "@/components/Heading";
+import Box from "@/components/Box/Box";
 
 interface Props {
     nodes: Node | Node[];
@@ -39,6 +40,13 @@ const options: Options = {
             const text = node.children[0].text as string;
             if (text.substring(0, 19) === 'https://github.com/') {
                 return <GithubSnippet src={text} />;
+            }
+        }
+
+        if (node && node.children[0].text) {
+            const text = node.children[0].text as string;
+            if (text.substring(0, 1) === 'ℹ' || text.substring(0,1) === '💡') {
+                return <Box icon={text.substring(0, 1)}>{children}</Box>;
             }
         }
 
