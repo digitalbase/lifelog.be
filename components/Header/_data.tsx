@@ -90,6 +90,11 @@ export const links: LinkInterface[] = [
                 description: 'Ad blockers/New browsers change the data by about 20%',
                 href: '/day-9--dealing-with-trackingad-blockers',
             },
+            {
+                label: 'Day 10: Six months later',
+                description: 'Switching to segment.com Personas > Journey',
+                href: '/day-10-six-months-later',
+            },
         ],
     }
 ]
