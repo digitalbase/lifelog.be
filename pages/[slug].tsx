@@ -4,15 +4,17 @@ import parseNextPathParams from "../src/util/parseNextPathParams";
 import {Article} from "@/components/Article";
 import Page from "@/components/Layout/Page";
 import {getPrezlyApi} from "@/utils/prezly";
+import OtherArticlesInSerie from "@/components/Article/OtherArticlesInSerie";
 
 type ArticlePageProps = {
     story: ExtendedStory;
+    storiesInSameCategory: { };
 };
 
 export default class ArticlePage extends React.Component<ArticlePageProps> {
 
     render() {
-        const { story } = this.props;
+        const { story, storiesInSameCategory  } = this.props;
 
         // fall back to preview image if there is no social image
         const socialImage = story.social_image ?? story.preview_image;
@@ -24,10 +26,23 @@ export default class ArticlePage extends React.Component<ArticlePageProps> {
             canonicalUrl: `/${story.slug}`
         };
 
+        let showAsSerie = false;
+        if (story.categories[0] && story.categories[0].display_name === 'Solving Marketing Attribution') {
+            showAsSerie = true;
+        }
+
+        if (story.categories[0] && story.categories[0].display_name === 'The Best Newsroom') {
+            showAsSerie = true;
+        }
+
         return (
             <>
                 <Page meta={storyMeta}>
                     <Article story={story} />
+
+                    { showAsSerie &&
+                        <OtherArticlesInSerie stories={storiesInSameCategory} />
+                    }
                 </Page>
             </>
         );
@@ -46,9 +61,15 @@ export async function getStaticProps({ params, preview }) {
         };
     }
 
+    let storiesInSameCategory = {};
+    if (story.categories[0]) {
+        storiesInSameCategory = await api.getStoriesFromCategory(story.categories[0], { pageSize: 50 });
+    }
+
     return {
         props: {
-            story
+            story,
+            storiesInSameCategory
         },
     };
 }
